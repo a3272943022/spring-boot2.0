@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sanz.workbench.dao.MeEmployeesMapper">
+  <resultMap id="BaseResultMap" type="com.sanz.workbench.model.MeEmployees">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="department_id" jdbcType="BIGINT" property="departmentId" />
+    <result column="role_id" jdbcType="VARCHAR" property="roleId" />
+    <result column="arear_id" jdbcType="BIGINT" property="arearId" />
+    <result column="login_id" jdbcType="VARCHAR" property="loginId" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="sex" jdbcType="BIGINT" property="sex" />
+    <result column="duty" jdbcType="VARCHAR" property="duty" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="fax" jdbcType="VARCHAR" property="fax" />
+    <result column="belong_role" jdbcType="VARCHAR" property="belongRole" />
+    <result column="isLoginEnabled" jdbcType="INTEGER" property="isloginenabled" />
+    <result column="user_state" jdbcType="BIGINT" property="userState" />
+    <result column="orderNo" jdbcType="BIGINT" property="orderno" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from me_employees
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.sanz.workbench.model.MeEmployees">
+    insert into me_employees (id, department_id, role_id, 
+      arear_id, login_id, `password`, 
+      `name`, qq, email, sex, 
+      duty, mobile, phone, 
+      fax, belong_role, isLoginEnabled, 
+      user_state, orderNo)
+    values (#{id,jdbcType=BIGINT}, #{departmentId,jdbcType=BIGINT}, #{roleId,jdbcType=VARCHAR}, 
+      #{arearId,jdbcType=BIGINT}, #{loginId,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{sex,jdbcType=BIGINT}, 
+      #{duty,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{fax,jdbcType=VARCHAR}, #{belongRole,jdbcType=VARCHAR}, #{isloginenabled,jdbcType=INTEGER}, 
+      #{userState,jdbcType=BIGINT}, #{orderno,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sanz.workbench.model.MeEmployees">
+    update me_employees
+    set department_id = #{departmentId,jdbcType=BIGINT},
+      role_id = #{roleId,jdbcType=VARCHAR},
+      arear_id = #{arearId,jdbcType=BIGINT},
+      login_id = #{loginId,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=BIGINT},
+      duty = #{duty,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      fax = #{fax,jdbcType=VARCHAR},
+      belong_role = #{belongRole,jdbcType=VARCHAR},
+      isLoginEnabled = #{isloginenabled,jdbcType=INTEGER},
+      user_state = #{userState,jdbcType=BIGINT},
+      orderNo = #{orderno,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, department_id, role_id, arear_id, login_id, `password`, `name`, qq, email, 
+    sex, duty, mobile, phone, fax, belong_role, isLoginEnabled, user_state, orderNo
+    from me_employees
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, department_id, role_id, arear_id, login_id, `password`, `name`, qq, email, 
+    sex, duty, mobile, phone, fax, belong_role, isLoginEnabled, user_state, orderNo
+    from me_employees
+  </select>
+</mapper>

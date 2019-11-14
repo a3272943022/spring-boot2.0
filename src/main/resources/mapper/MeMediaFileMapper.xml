@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sanz.workbench.dao.MeMediaFileMapper">
+  <resultMap id="BaseResultMap" type="com.sanz.workbench.model.MeMediaFile">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="created_date" jdbcType="TIMESTAMP" property="createdDate" />
+    <result column="business_id" jdbcType="VARCHAR" property="businessId" />
+    <result column="business_type" jdbcType="INTEGER" property="businessType" />
+    <result column="content_type" jdbcType="VARCHAR" property="contentType" />
+    <result column="host_key" jdbcType="VARCHAR" property="hostKey" />
+    <result column="md5" jdbcType="VARCHAR" property="md5" />
+    <result column="host" jdbcType="VARCHAR" property="host" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from me_media_file
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.sanz.workbench.model.MeMediaFile">
+    insert into me_media_file (id, created_date, business_id, 
+      business_type, content_type, host_key, 
+      md5, `host`)
+    values (#{id,jdbcType=BIGINT}, #{createdDate,jdbcType=TIMESTAMP}, #{businessId,jdbcType=VARCHAR}, 
+      #{businessType,jdbcType=INTEGER}, #{contentType,jdbcType=VARCHAR}, #{hostKey,jdbcType=VARCHAR}, 
+      #{md5,jdbcType=VARCHAR}, #{host,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.sanz.workbench.model.MeMediaFile">
+    update me_media_file
+    set created_date = #{createdDate,jdbcType=TIMESTAMP},
+      business_id = #{businessId,jdbcType=VARCHAR},
+      business_type = #{businessType,jdbcType=INTEGER},
+      content_type = #{contentType,jdbcType=VARCHAR},
+      host_key = #{hostKey,jdbcType=VARCHAR},
+      md5 = #{md5,jdbcType=VARCHAR},
+      `host` = #{host,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, created_date, business_id, business_type, content_type, host_key, md5, 
+    `host`
+    from me_media_file
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, created_date, business_id, business_type, content_type, host_key, md5, 
+    `host`
+    from me_media_file
+  </select>
+</mapper>
