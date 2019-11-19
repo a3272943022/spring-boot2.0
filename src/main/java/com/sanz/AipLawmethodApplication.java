@@ -18,4 +18,6 @@ public class AipLawmethodApplication {
 		SpringApplication.run(AipLawmethodApplication.class, args);
 	}
 
+
+
 }

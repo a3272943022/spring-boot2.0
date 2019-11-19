@@ -1,5 +1,6 @@
 server:
   port: 9330 #端口
+# 数据库访问配置
 spring:
   application:
     name: dev-manager
@@ -10,6 +11,9 @@ spring:
     url: jdbc:mysql://47.99.120.252:13001/spjc?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&useSSL=false
     username: jc
     password: 123456
+    #url: jdbc:mysql://localhost:3306/mybatis?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&useSSL=false
+    #username: root
+    #password: root
     # 初始化，最小，最大连接数
     initialSize: 3
     minidle: 3
@@ -19,4 +23,15 @@ spring:
     # 配置多久进行一次检测，检测需要关闭的空闲连接 单位毫秒
     timeBetweenEvictionRunsMillis: 60000
     validationQuery: SELECT 1 FROM dual
-
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.sanz.workbench.model
+## JWT
+config:
+  jwt:
+    # 加密密钥
+    secret: iwqjhda8232bjgh432[cicada-smile]
+    # token有效时长
+    expire: 3600
+    # header 名称
+    header: token

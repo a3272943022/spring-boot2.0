@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
  * @CLASSNAME MeTaskController
  */
 @RestController
-@RequestMapping(value = "")
 public class MeTaskController {
     @Autowired
     private MeTaskServer meTaskServer;

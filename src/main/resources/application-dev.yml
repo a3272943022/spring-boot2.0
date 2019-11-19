@@ -26,17 +26,14 @@ spring:
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
   type-aliases-package: com.sanz.workbench.model
-#mybatis-plus:
-#  mapper-locations: classpath*:/mapping/*.xml
-#  typeAliasesPackage: cn.gov.nbfsi.fsi.rest.modular.api.model;cn.gov.nbfsi.fsi.rest.modular.system.model;
-#   cn.gov.nbfsi.fsi.rest.modular.api.entity.dto;cn.gov.nbfsi.fsi.rest.modular.datav.dto;
-#  global-config:
-#    id-type: 0  #0:数据库ID自增   1:用户输入id  2:全局唯一id(IdWorker)  3:全局唯一ID(uuid)
-#    db-column-underline: false
-#    refresh-mapper: true
-#  configuration:
-#    map-underscore-to-camel-case: false
-#    cache-enabled: true #配置的缓存的全局开关
-#    lazyLoadingEnabled: true #延时加载的开关
-#    multipleResultSetsEnabled: true #开启的话，延时加载一个属性时会加载该对象全部属性，否则按需加载属性
+## JWT
+config:
+  jwt:
+    # 加密密钥
+    secret: iwqjhda8232bjgh432[cicada-smile]
+    # token有效时长
+    expire: 3600
+    # header 名称
+    header: token
+
 
